@@ -9,26 +9,17 @@ database_file = "data/database.json"
 
 # адреса NFT в сети Zora и количество для бесплатного минта (адрес: количество)
 nfts_to_mint = {
-    "0x8A43793D26b5DBd5133b78A85b0DEF8fB8Fce9B3": 99,
-    "0x53cb0B849491590CaB2cc44AF8c20e68e21fc36D": 3,
-    "0x4de73D198598C3B4942E95657a12cBc399E4aDB5": 1,
-    "0x266b7E8Df0368Dd4006bE5469DD4EE13EA53d3a4": 3,
-    "0xFa177a7eDC2518E70F8f8Ee159fA355D6b727257": 3,
-    "0x4073a52A3fc328D489534Ab908347eC1FcB18f7f": 3,
-    "0x12B93dA6865B035AE7151067C8d264Af2ae4be8E": 10,
-    "0x48D913ee06B66599789F056A0e48Bb45Caf3b4e9": 3,
-    "0x8974B96dA5886Ed636962F66a6456DC39118A140": 3,
-    "0xC47ADb3e5dC59FC3B41d92205ABa356830b44a93": 2,
-    "0x9eAE90902a68584E93a83D7638D3a95ac67FC446": 3,
-    "0xbC2cA61440fAF65a9868295Efa5d5D87c55B9529": 4,
-    "0xb096832A6ccD9053fe7a0EF075191Fe342D1AB75": 2,
-    "0x8f1B6776963bFcaa26f4e2a41289cFc3F50eD554": 2,
-    "0xA85B9F9154db5bd9C0b7F869bC910a98ba1b7A87": 3,
-    "0xd46760C832960eEBd81391aC5DC8502A778B24Ec": 1,
+    "0x5b9832668e8642a666236b61ed10e77b3b2643dd": 2,
+    "0xd0f9af18b93bb3a10240a9aa7650a87929ccbf1b": 1,
+    "0x02e78b5ff1dfe31b35ba76d0b1533263613eb9d5": 4,
+    "0x8c07329d155ad84718a817e872ff884909f5eff2": 2,
+    "0xd1df439912f133b29aaa209d2f25f77cab6a6258": 3,
+    "0x626f6ed75b88bcb76024c7ed448c5f140cf3b486": 1,
+    "0x4b3cace02cc3ececc5e2927822d0578c5d427ad1": 1,
 }
 
 # использование прокси; True - прокси используются, False - не используются
-use_proxy = True
+use_proxy = False
 
 # автогенерация базы данных; True - вкл, False - выкл
 database_autocreate = True
@@ -37,13 +28,13 @@ database_autocreate = True
 min_balance = 0.0001
 
 # время между бриджами, [от, до] (выбирается рандомное число)
-sleep_time = [10, 30]
+sleep_time = [1, 2]
 
 # множитель для расчета цен на газ для транзакции
 gas_multiplier = 1.5
 
 # максимальная цена газа в Gwei, при которой будет проводиться бридж
-gas_threshold = 20
+gas_threshold = 75
 
 # диапазон времени задержки между проверками текущей цены газа в секундах
 gas_delay_range = [10, 15]
@@ -53,3 +44,5 @@ zora_rpc = "https://rpc.zora.energy"
 
 # использумая rpc для Ethereum (mainnet)
 eth_rpc = "https://rpc.ankr.com/eth"
+
+minter_address = '0x04e2516a2c207e84a1839755675dfd8ef6302f0a'

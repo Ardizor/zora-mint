@@ -1,5 +1,6 @@
 from web3 import Web3
 
+import config
 from config import gas_threshold, gas_delay_range, min_balance
 from constants import ZORA_ABI
 from models.client_base import ClientBase
@@ -29,13 +30,15 @@ class ZoraMintClient(ClientBase):
             address=nft_address,
             abi=ZORA_ABI
         )
-
-        data = nft_contract.encodeABI('mint', args=[
-            amount
-        ])
-
-        tx = self.send_tx(to_adr=nft_address, data=data, proxy=self.proxy)
-
+        args = {
+            'minter': Web3.to_checksum_address(config.minter_address),
+            'tokenId': 1,
+            'quantity': amount,
+            'minterArguments': f'0x000000000000000000000000{self.public_key[2:]}',
+            'mintReferral': Web3.to_checksum_address('0x2B8ed06cD76AD66bA9AEC19e6f760a923a949Da4')
+        }
+        data = nft_contract.encodeABI('mintWithRewards', args=list(args.values()))
+        tx = self.send_tx(to_adr=nft_address, data=data, value=Web3.to_wei(0.000777 * amount, 'ether'))
         if self.verify_tx(tx):
             return (True, (
                 f"Successfuly minted {nft_address}\n"
